@@ -1,10 +1,8 @@
-{{title}}
 <div>
-<p>
-<input class="todo-input"
-       #inputRef [value]="title"
-       (keyup.enter)="submitValue(inputRef.value)">
-
-<button class="btn" (click)="submitValue(inputRef.value)">Save</button>
-</p>
+  <p>
+  <input class="todo-input"
+         #inputRef [value]="title"
+         (keyup.enter)="submitValue(inputRef.value)">
+  <button class="btn" (click)="submitValue(inputRef.value)">Save</button>
+  </p>
 </div>

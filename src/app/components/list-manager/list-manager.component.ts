@@ -10,6 +10,7 @@ import {TodoListService} from '../../services/todo-list.service';
 export class ListManagerComponent implements OnInit {
   todoList: TodoItem[];
   constructor(private todoListService: TodoListService) {}
+  hideCompleted: boolean;
 
   ngOnInit() {
     this.todoList = this.todoListService.getTodoList();
@@ -30,4 +31,9 @@ export class ListManagerComponent implements OnInit {
       this.todoListService.updateItem(item.item, item.changes);
     }
   }
+
+  toggleHideCompleted() {
+    this.hideCompleted = !this.hideCompleted;
+  }
+
 }

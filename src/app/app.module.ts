@@ -9,6 +9,7 @@ import { ListManagerComponent } from './components/list-manager/list-manager.com
 import {TodoListService} from './services/todo-list.service';
 import {StorageService} from './services/storage.service';
 import {FormsModule} from '@angular/forms';
+import { CompletedPipe } from './pipes/completed.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     InputButtonUnitComponent,
     TodoItemComponent,
-    ListManagerComponent
+    ListManagerComponent,
+    CompletedPipe
   ],
   imports: [
     BrowserModule, FormsModule
