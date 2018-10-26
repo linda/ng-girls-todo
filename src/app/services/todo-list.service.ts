@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import {TodoItem} from '../interfaces/todo-item';
 import {StorageService} from './storage.service';
+import {JsonApiService} from './json-api.service';
+import {catchError, tap} from 'rxjs/operators';
+import {Observable} from 'rxjs/Observable';
+
   const todoListStorageKey = 'Todo_List';
 ​
   const defaultTodoList: TodoItem[] = [
@@ -17,20 +21,23 @@ import {StorageService} from './storage.service';
 export class TodoListService {
   todoList: TodoItem[];
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: StorageService, private jsonApiService: JsonApiService) {
     this.todoList =
       storageService.getData(todoListStorageKey) || defaultTodoList;
   }
+
   getTodoList() {
     return this.todoList;
   }
+
   addItem(item: TodoItem) {
     this.todoList.push(item);
     this.saveList();
   }
+
   updateItem(item: TodoItem, changes) {
     const index = this.todoList.indexOf(item);
-    this.todoList[index] = { ...item, ...changes };
+    this.todoList[index] = {...item, ...changes};
     this.saveList();
   }
 
@@ -43,4 +50,13 @@ export class TodoListService {
   private saveList(): void {
     this.storageService.setData(todoListStorageKey, this.todoList);
   }
+
+  getFakeList(): void {
+    this.jsonApiService.getFullFakeList()
+      .subscribe((response: TodoItem[]) => {
+        this.todoList.push(...response);
+      }
+      );
+  }
+
 }

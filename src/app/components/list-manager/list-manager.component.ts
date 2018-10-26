@@ -35,5 +35,8 @@ export class ListManagerComponent implements OnInit {
   toggleHideCompleted() {
     this.hideCompleted = !this.hideCompleted;
   }
+  addFakeList() {
+    this.todoListService.getFakeList();
+  }
 
 }

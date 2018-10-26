@@ -1,9 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {TodoItem} from '../interfaces/todo-item';
-import {filter} from 'rxjs/operators';
 
 @Pipe({
-  name: 'completed'
+  name: 'completed',
+  pure: false
+
 })
 export class CompletedPipe implements PipeTransform {
 

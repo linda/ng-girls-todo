@@ -2,6 +2,7 @@
   <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
   <p>
     <button (click)="toggleHideCompleted()" class="btn" [textContent]="hideCompleted ? 'Show all' : 'Hide completed'"></button>
+    <button (click)="addFakeList()" class="btn">Add fake list items from server</button>
   </p>
   <ul>
     <li *ngFor="let todoItem of todoList | completed: hideCompleted">

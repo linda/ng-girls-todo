@@ -10,6 +10,8 @@ import {TodoListService} from './services/todo-list.service';
 import {StorageService} from './services/storage.service';
 import {FormsModule} from '@angular/forms';
 import { CompletedPipe } from './pipes/completed.pipe';
+import {HttpClientModule} from '@angular/common/http';
+import {JsonApiService} from './services/json-api.service';
 
 
 @NgModule({
@@ -21,10 +23,11 @@ import { CompletedPipe } from './pipes/completed.pipe';
     CompletedPipe
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
+
 
   ],
-  providers: [TodoListService, StorageService],
+  providers: [TodoListService, StorageService, JsonApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
