@@ -7,7 +7,7 @@ import {tap} from 'rxjs/operators';
 @Injectable()
 export class JsonApiService {
 
-  private url = 'http://my-json-server.typicode.com/linda/todo-list-api/items';
+  private url = 'https://my-json-server.typicode.com/linda/todo-list-api/items';
 
   constructor(  private http: HttpClient,
   ) { }
