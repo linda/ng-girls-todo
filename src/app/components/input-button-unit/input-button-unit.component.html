@@ -1,8 +1,8 @@
 <div>
 <p>
 <input #inputRef [value]="title"
-       (keyup.enter)="changeTitle($event.target.value)">
+       (keyup.enter)="submitValue(inputRef.value)">
 
-<button (click)="changeTitle(inputRef.value)">Save</button> ({{title}})
+<button (click)="submitValue(inputRef.value)">Save</button> ({{title}})
 </p>
 </div>
