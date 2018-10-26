@@ -1,10 +1,8 @@
+<div>
 <p>
-  The title is: {{ title }}
-</p>
-
-<input [value]="title"
+<input #inputRef [value]="title"
        (keyup.enter)="changeTitle($event.target.value)">
 
-<button (click)="changeTitle('Button Clicked!')">
-  Save
-</button>
+<button (click)="changeTitle(inputRef.value)">Save</button> ({{title}})
+</p>
+</div>
