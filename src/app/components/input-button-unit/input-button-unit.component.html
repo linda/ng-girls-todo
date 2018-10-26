@@ -1,5 +1,10 @@
 <p>
   The title is: {{ title }}
 </p>
-<input [value]="generateTitle()" (keyup.enter)="changeTitle($event)">
-<button (click)="changeTitle($event)">Save</button>
+
+<input [value]="title"
+       (keyup.enter)="changeTitle($event.target.value)">
+
+<button (click)="changeTitle('Button Clicked!')">
+  Save
+</button>

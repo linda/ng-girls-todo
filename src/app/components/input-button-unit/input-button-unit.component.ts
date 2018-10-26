@@ -23,7 +23,7 @@ export class InputButtonUnitComponent implements OnInit {
   generateTitle(): string {
     return this.title;
   }
-  changeTitle(event: Event) {
-    console.log(event);
+  changeTitle(title: string) {
+    this.title = title;
   }
 }
