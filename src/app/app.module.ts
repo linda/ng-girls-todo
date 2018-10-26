@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { InputButtonUnitComponent } from './components/input-button-unit/input-button-unit.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InputButtonUnitComponent
   ],
   imports: [
     BrowserModule
