@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { InputButtonUnitComponent } from './components/input-button-unit/input-button-unit.component';
-import { TodoItemComponent } from './todo-item/todo-item.component';
-import { ListManagerComponent } from './list-manager/list-manager.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { ListManagerComponent } from './components/list-manager/list-manager.component';
 import {TodoListService} from './services/todo-list.service';
 import {StorageService} from './services/storage.service';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {StorageService} from './services/storage.service';
     ListManagerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
+
   ],
   providers: [TodoListService, StorageService],
   bootstrap: [AppComponent]

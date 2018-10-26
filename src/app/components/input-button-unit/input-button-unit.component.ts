@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {TodoItem} from '../../interfaces/todo-item';
 
 @Component({
   selector: 'app-input-button-unit',
@@ -6,26 +7,34 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./input-button-unit.component.css']
 })
 export class InputButtonUnitComponent implements OnInit {
+
+  @Input() currentTitle: string;
   @Output() submit: EventEmitter<string> = new EventEmitter();
 
-  title = '';
+  title: string;
 
   constructor() {
   }
 ​
   ngOnInit() {
-    // setTimeout(() => {
-    //   this.title = 'This is not the title you are looking for';
-    // }, 3000);
-
+    if(this.currentTitle) {
+      this.title = this.currentTitle;
+    } else {
+      this.title = '';
+    }
   }
 
   generateTitle(): string {
     return this.title;
   }
   submitValue(newTitle: string) {
-    if(newTitle && newTitle !== '') {
-      this.submit.emit(newTitle);
-    }
+    this.submit.emit(newTitle);
+    this.clear();
   }
+
+  private clear() {
+    this.title = null;
+  }
+
 }
+

@@ -1,0 +1,13 @@
+<div *ngIf="!editMode" (dblclick)="toggleEditMode()" >
+    <input type="checkbox"
+           class="todo-checkbox"
+           (click)="completeItem()"/>
+
+    <span class="todo-title" [ngClass]="{'todo-complete': item.completed}">
+    {{ item.title }}
+    </span>
+</div>
+<app-input-button-unit *ngIf="editMode"
+  [currentTitle]="item.title"
+  (submit)="updateItem($event)"
+  ></app-input-button-unit>
